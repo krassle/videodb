@@ -270,14 +270,14 @@ function imdbData($imdbID)
         $data['subtitle'] = trim($s);
     }
     # orig. title
-    preg_match('<div class="originalTitle">(.+?)<span class="description"> \(original title\)<\/span><\/div>/si', $resp['data'], $ary);
+    preg_match('/<div class="originalTitle">(.+?)<span class="description"> \(original title\)<\/span><\/div>/si', $resp['data'], $ary);
     $data['origtitle'] = trim($ary[1]);
 
     // Cover URL
     $data['coverurl'] = imdbGetCoverURL($resp['data']);
 
     // MPAA Rating
-    preg_match('/<div class="subtext">(.+?)</is', $resp['data'], $ary);
+    preg_match('/<div class="subtext">(.+?)</si', $resp['data'], $ary);
     $data['mpaa'] = trim($ary[1]);
 
     // Runtime
